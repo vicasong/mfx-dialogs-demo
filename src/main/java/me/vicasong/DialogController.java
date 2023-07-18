@@ -6,6 +6,7 @@ import io.github.palexdev.materialfx.dialogs.MFXGenericDialogBuilder;
 import io.github.palexdev.materialfx.dialogs.MFXStageDialog;
 import io.github.palexdev.materialfx.enums.ScrimPriority;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -20,13 +21,15 @@ import java.util.function.Consumer;
  *
  */
 public class DialogController {
+    @FXML
     public MFXTextField txtCode;
+    @FXML
     public Label txtMsg;
 
     private MFXStageDialog dialog;
     private volatile String result;
 
-    public synchronized void openPrompt(Consumer<String> resultCallback) {
+    public void openPrompt(Consumer<String> resultCallback) {
         long invokeTime = System.currentTimeMillis();
         if (dialog == null) {
             MFXGenericDialog content;
@@ -67,11 +70,13 @@ public class DialogController {
         }
     }
 
+    @FXML
     public void onDialogClose(MouseEvent mouseEvent) {
         result = null;
         dialog.close();
     }
 
+    @FXML
     public void onConfirm(ActionEvent actionEvent) {
         String input = txtCode.getText();
         if (input == null || input.isBlank()) {
@@ -84,6 +89,7 @@ public class DialogController {
         }
     }
 
+    @FXML
     public void onCancel(ActionEvent actionEvent) {
         result = null;
         dialog.close();

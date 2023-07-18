@@ -18,6 +18,7 @@ public class DemoController {
 
     @FXML
     public void onOpenAction(ActionEvent actionEvent) {
+        txtCode.setVisible(false);
         CurrentStage.dialogController.openPrompt((code) -> {
             txtCode.setText(code);
             txtCode.setVisible(true);
