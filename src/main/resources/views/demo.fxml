@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+
+<?import javafx.scene.control.Label?>
+<StackPane prefHeight="500.0"
+           prefWidth="465.0"
+           xmlns="http://javafx.com/javafx/10.0.2-internal"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="me.vicasong.DemoController">
+    <VBox VBox.vgrow="ALWAYS" alignment="CENTER">
+        <Label style="-fx-text-fill: #3e73ff;
+                        -fx-font-size: 17;
+                        -fx-font-weight: 900;
+                        -fx-alignment: top-right;
+                        -fx-text-alignment: center;"
+               fx:id="txtCode"
+               visible="false"/>
+        <MFXButton buttonType="FLAT"
+                   text="Open"
+                   fx:id="btnOpen"
+                   onAction="#onOpenAction"
+                   prefHeight="42"/>
+    </VBox>
+</StackPane>

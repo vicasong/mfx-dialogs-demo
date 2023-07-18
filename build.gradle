@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.javamodularity.moduleplugin' version '1.8.12'
+}
+
+group = 'me.vicasong'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://nexus.gluonhq.com/nexus/content/repositories/releases'
+    }
+    maven { url 'https://repo.spring.io/milestone' }
+    mavenCentral()
+}
+
+application {
+    mainModule = 'mfx.dialogs.demo'
+    mainClass = 'me.vicasong.Main'
+}
+
+dependencies {
+    implementation 'io.github.palexdev:materialfx:11.16.1'
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+javafx {
+    version = '17.0.2'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
